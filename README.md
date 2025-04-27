@@ -1,6 +1,7 @@
+
 ---
 
-# 🛰️ Morse Converter
+## 🛰️ Morse Converter
 
 > Conversor de texto para código Morse.  
 > Desenvolvido no **Arch Linux** com **Hyprland**!
