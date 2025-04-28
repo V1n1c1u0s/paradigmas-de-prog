@@ -111,23 +111,23 @@ begin
     try
         for i := 1 to Length(Texto) do
         begin
-        c := UpCase(Texto[i]);
-        if c = ' ' then
-            AppendSilence(Stream, LetterSpace)
-        else
-        begin
-            MorseCode := GetMorse(c);
-            for j := 1 to Length(MorseCode) do
+            c := UpCase(Texto[i]);
+            if c = ' ' then
+                AppendSilence(Stream, LetterSpace)
+            else
             begin
-            s := MorseCode[j];
-            if s = '.' then
-                AppendTone(Stream, DotDuration)
-            else if s = '-' then
-                AppendTone(Stream, DashDuration);
-            AppendSilence(Stream, SymbolSpace);
-            end;
+                MorseCode := GetMorse(c);
+                for j := 1 to Length(MorseCode) do
+                begin
+                s := MorseCode[j];
+                if s = '.' then
+                    AppendTone(Stream, DotDuration)
+                else if s = '-' then
+                    AppendTone(Stream, DashDuration);
+                    AppendSilence(Stream, SymbolSpace);
+                end;
             AppendSilence(Stream, LetterSpace);
-        end;
+            end;
         end;
         SaveWav(Stream, OutputFile);
     finally
@@ -153,14 +153,14 @@ begin
     begin
         c := Texto[i];
         if c = ' ' then
-        Resultado := Resultado + ' / '
+            Resultado := Resultado + ' / '
         else
         begin
-        for j := 1 to 49 do
+            for j := 1 to 49 do
             if Alfabeto[j] = c then
             begin
-            Resultado := Resultado + Morse[j] + ' ';
-            Break;
+                Resultado := Resultado + Morse[j] + ' ';
+                Break;
             end;
         end;
     end;
@@ -177,9 +177,9 @@ begin
     morse_text := ParaMorse(input_text);
 
     gtk_entry_set_text(GTK_ENTRY(morse_entry), PChar(morse_text));
-    end;
+end;
 
-    procedure play_audio(widget: PGtkWidget; data: gpointer); cdecl;
+procedure play_audio(widget: PGtkWidget; data: gpointer); cdecl;
 begin
     fpsystem('aplay /tmp/morse.wav');
 end;
