@@ -25,7 +25,7 @@
 Antes de compilar e rodar o programa, você precisa instalar:
 
 ```bash
-sudo pacman -S fpc alsa-utils
+sudo pacman -S fpc gtk2 alsa-utils
 ```
 
 | Pacote        | Função                                      |
